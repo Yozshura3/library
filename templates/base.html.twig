@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <title>{% block title %}L I B R A I R I E {% endblock %} </title>
+</head>
+<body>
+<header>
+
+        <div class="logo">
+            <img class="resp" src="http://ekladata.com/cA1uSkAqVBvtwP4Y422mx82sBVQ.png" alt="">
+        </div>
+    <nav>
+        <a href="{{ path('book_db_list') }}"><p>LIVRES</p></a>
+
+        <a href="{{ path('author_db_list') }}"><p>AUTEURS</p></a>
+
+    </nav>
+</header>
+
+{% block section %}
+
+{% endblock %}
+
+</body>
+
+<footer>
+    <div class="reseau">
+        <div>
+            <img width="100px" src="https://i.pinimg.com/originals/ce/c8/a6/cec8a6239de29acbfcfee0ccec995b9f.png" alt="">
+        </div>
+
+        <div>
+            <img width="80px" src="https://images.vexels.com/media/users/3/141370/isolated/preview/73211069a13c828088c2e85b2569e787-twitter-distorted-round-icon-by-vexels.png" alt="">
+        </div>
+
+        <div>
+            <img width="130px" src="https://upload.wikimedia.org/wikipedia/commons/3/37/Instagram_Icon.png" alt="">
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

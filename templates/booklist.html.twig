@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} B O O K S {% endblock %}
+
+{% block section %}
+
+    <div class="container">
+
+
+    {% for book in books %}
+
+
+<div class="books">
+
+<h1> {{ book.title }}</h1>
+<p> {{ book.nbpages }} pages</p>
+<p>Genre: {{ book.style }}</p>
+<p>{{ book.instock }}</p>
+    {% if book.instock %}
+    <p class="green">Disponible</p>
+    {% else %}
+        <p class="red">En Rupture</p>
+        {% endif %}
+    <a href="{{ path('livre', {id: book.id} ) }}"><div class="button">Voir plus..</div></a>
+</div>
+
+{%  endfor %}
+    </div>
+
+{% endblock %}

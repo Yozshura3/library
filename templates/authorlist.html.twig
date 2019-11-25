@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} A U T E U R S {% endblock %}
+
+{% block section %}
+<p> {{ authors.name }}</p>
+
+<p> {{ authors.firstName }}</p>
+
+<p> {{ authors.birthDate | date('d/m/Y') }}</p>
+    <hr>
+{% endblock %}

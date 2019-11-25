@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block section %}
+
+    <div class="container">
+    <div class="books">
+
+    <h1> {{ book.title }}</h1>
+    <p> {{ book.nbpages }} pages</p>
+    <p>Genre: {{ book.style }}</p>
+    <p>{{ book.instock }}</p>
+    {% if book.instock %}
+        <p class="green">Disponible</p>
+    {% else %}
+        <p class="red">En Rupture</p>
+    {% endif %}
+    </div>
+    </div>
+{% endblock %}
