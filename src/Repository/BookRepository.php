@@ -38,7 +38,10 @@ class BookRepository extends ServiceEntityRepository
         return $books;
 
         // Executer la requête en SQL en base de données pour récupérer les bons livres
+
     }
+
+
 
     // /**
     //  * @return Book[] Returns an array of Book objects

@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 use App\Entity\Book;
+use App\Repository\AuthorRepository;
 use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -47,7 +48,6 @@ class BookController extends AbstractController
         // Cette méthode est censée nous retourner tous les livres en fonction d'un genre
         // Elle va donc executer une requete SELECT en base de données.
 
-        dump($books); die;
     }
 
 
