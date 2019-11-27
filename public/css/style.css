@@ -102,3 +102,18 @@ footer{
     border-radius: 20px;
 
 }
+
+.formulaire{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+}
+
+input{
+    width: 130px;
+}
+
+label.required:before {
+    content: "*";
+}

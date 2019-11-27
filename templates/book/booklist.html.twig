@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends '../base.html.twig' %}
 
 {% block title %} B O O K S {% endblock %}
 
@@ -22,6 +22,9 @@
         <p class="red">En Rupture</p>
         {% endif %}
     <a href="{{ path('livre', {id: book.id} ) }}"><div class="button">Voir plus..</div></a>
+
+    <a href="{{ path('book_update', {id: book.id}) }}"><div class="button">Modifier</div></a>
+
 </div>
 
 {%  endfor %}

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block section %}
+
+<form action="{{ path('author_insert') }}" class="formulaire" method="post">
+
+    <label  for="insertAuthorName">Entrez le nom de l'auteur ( 4 à 15 caractères</label>
+    <input type="text" method="post" id="insertAuthorName" name="insertAuthorName" required
+           minlength="4" maxlength="15">
+    <label for="insertAuthorFirst">Entrez le prénom de l'auteur ( 4 à 15 caractères</label>
+    <input type="text" method="post" id="insertAuthorFirst" name="insertAuthorFirst" required
+           minlength="4" maxlength="15">
+    <label for="insertAuthorBirth">Entrez la date de naissance de l'auteur</label>
+    <input type="date" method="post" id="insertAuthorBirth" name="insertAuthorBirth">
+
+    <label for="insertAuthorDeath">Entrez la date de mort de l'auteur</label>
+    <input type="date" method="post" id="insertAuthorDeath" name="insertAuthorDeath">
+
+    <label for="insertAuthorBio">Entrez la biographie de l'auteur </label>
+    <textarea type="text" method="post" id="insertAuthorBio" name="insertAuthorBio" required
+              minlength="1" maxlength="500"></textarea>
+
+    <label for="submit"></label>
+    <input name="submit" id="submit" type="submit">
+</form>
+
+{% endblock %}
