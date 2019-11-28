@@ -2,8 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="388a5a92-d6a1-4d29-9754-977e129f3fc7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/img/agenda.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/josh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/open-book.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/pencil.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/trash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/wall.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/wall2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/AuthorType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/BookType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191127142130.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/author/admin/admin_authorlist.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/author/insert_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/book/admin/admin_booklist.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AuthorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AuthorController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BookController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/authorAdd.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/authorlist.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/authorlist.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/book/booklist.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book/booklist.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/book/insert_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book/insert_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/book/livre.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/book/livre.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -144,15 +166,20 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/author/admin" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates/book" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/author/admin" />
+      <recent name="$PROJECT_DIR$/templates/book" />
+      <recent name="$PROJECT_DIR$/templates/author" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/book/admin" />
+      <recent name="$PROJECT_DIR$/templates/book" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -181,7 +208,9 @@
       <workItem from="1574412385285" duration="8388000" />
       <workItem from="1574609424191" duration="471000" />
       <workItem from="1574671960820" duration="18650000" />
-      <workItem from="1574844505987" duration="7079000" />
+      <workItem from="1574844505987" duration="7492000" />
+      <workItem from="1574930863402" duration="12527000" />
+      <workItem from="1574959624171" duration="92000" />
     </task>
     <task id="LOCAL-00001" summary="Author by name">
       <created>1574765843986</created>
@@ -197,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574865625919</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Formulaire flushed">
+      <created>1574870523256</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1574870523256</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,6 +254,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Author by name" />
-    <option name="LAST_COMMIT_MESSAGE" value="Author by name" />
+    <MESSAGE value="Formulaire flushed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Formulaire flushed" />
   </component>
 </project>

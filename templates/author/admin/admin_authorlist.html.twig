@@ -2,9 +2,6 @@
 
 {% block title %} A U T E U R S {% endblock %}
 
-{% block login %}
-    <a href="{{ path('admin_authorlist') }}"><div class="login"><img class="resp" src="{{ asset('img/login.png') }}" alt=""></div></a>
-{% endblock %}
 
 {% block section %}
 
@@ -18,6 +15,8 @@
             <div class="update">
 
                 <a href=""><div class="detail"><img class="resp" src="{{ asset('img/agenda.png') }}" alt=""></div></a>
+                <a href="{{ path('author_update_form', {id: author.id}) }}"><div class="detail"><img class="resp" src="{{ asset('img/pencil.png') }}" alt=""></div></a>
+                <a href=""><div class="detail"><img class="resp" src="{{ asset('img/trash.png') }}" alt=""></div></a>
             </div>
         </div>
 

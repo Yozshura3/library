@@ -1,4 +1,4 @@
-{% extends '../base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block section %}
 
@@ -8,7 +8,6 @@
     <h1> {{ book.title }}</h1>
     <p> {{ book.nbpages }} pages</p>
     <p>Genre: {{ book.style }}</p>
-    <p>{{ book.instock }}</p>
     {% if book.instock %}
         <p class="green">Disponible</p>
     {% else %}

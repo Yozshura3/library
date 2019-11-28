@@ -4,6 +4,13 @@
 
 {% block section %}
 
+    <div class="blockajout">
+        <div class="ajout">
+            <a href="{{ path('book_insert_form') }}"><p>Ajouter un livre</p></a>
+        </div>
+    </div>
+
+
     <div class="container">
 
 
@@ -27,6 +34,8 @@
     <div class="update">
 
         <a href="{{ path('livre', {id: book.id} ) }}"><div class="detail"><img class="resp" src="{{ asset('img/open-book.png') }}" alt=""></div></a>
+        <a href="{{ path('book_update_form', {id: book.id}) }}"><div class="detail"><img class="resp" src="{{ asset('img/pencil.png') }}" alt=""></div></a>
+        <a href="{{ path('book_delete', {id: book.id}) }}"><div class="detail"><img class="resp" src="{{ asset('img/trash.png') }}" alt=""></div></a>
     </div>
 
 </div>

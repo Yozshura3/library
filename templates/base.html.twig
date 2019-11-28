@@ -6,18 +6,21 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=IM+Fell+English&display=swap" rel="stylesheet">
     <title>{% block title %}L I B R A I R I E {% endblock %} </title>
 </head>
 <body>
 <header>
 
         <div class="logo">
-            <img class="resp" src="http://ekladata.com/cA1uSkAqVBvtwP4Y422mx82sBVQ.png" alt="">
+            <a href="{{ path('booklist') }}"><h1>CHILLING ROOM</h1></a>
         </div>
     <nav>
-        <a href="{{ path('book_db_list') }}"><p>LIVRES</p></a>
+        <a href="{{ path('booklist') }}"><p>LIVRES</p></a>
 
-        <a href="{{ path('author_db_list') }}"><p>AUTEURS</p></a>
+        <a href="{{ path('authorlist') }}"><p>AUTEURS</p></a>
+
+        {% block login %}<a href="{{ path('admin_booklist') }}"><div class="login"><img class="resp" src="{{ asset('img/login.png') }}" alt=""></div></a>{% endblock %}
 
     </nav>
 </header>

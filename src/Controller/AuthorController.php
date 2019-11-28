@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Entity\Author;
+use App\Form\AuthorType;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\AuthorRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,16 +15,29 @@ use Symfony\Component\Routing\Annotation\Route;
 class AuthorController extends AbstractController
 {
     /**
-     * @Route("/author_db_list", name="author_db_list")
+     * @Route("/authorlist", name="authorlist")
      */
     public function authorList(AuthorRepository $authorRepository)
     {
-        $authors = $authorRepository->find(3);
+        $authors = $authorRepository->findAll();
 
         return $this->render('authorlist.html.twig', [
             'authors' => $authors
     ]);
     }
+
+    /**
+     * @Route("/admin/authorlist", name="admin_authorlist")
+     */
+    public function adminAuthorList(AuthorRepository $authorRepository)
+    {
+        $authors = $authorRepository->findAll();
+
+        return $this->render('author/admin/admin_authorlist.html.twig', [
+            'authors' => $authors
+        ]);
+    }
+
 
     /**
      * @Route("/bio_search", name="bio_search")
@@ -44,7 +58,7 @@ class AuthorController extends AbstractController
         // généralement on obtient une instance de classe (ou un objet en utilisant le mot clé "new"
         // ici, grace a symfony, on obtient l'instance de classe Repository en la passant simplement en parametre
 
-        $auteurs = $auteurRepository->getAuthorByName($word);
+        $auteurs = $authorRepository->getAuthorByName($word);
         //Appelle le bookRepository(en le passant en parametre de la méthode)
         //appelle la méthode qu'on a créé dans le bookRepository ("getByGenre()")
         //Cette méthode est sensé nous retourner tous les livres en fonction d'un genre
@@ -97,7 +111,90 @@ class AuthorController extends AbstractController
         // Je valide la suppression en bdd avec la méthode flush
         $entityManager->flush();
 
-        return $this->redirectToRoute('author_delete');
+        return $this->redirectToRoute('authorlist');
     }
 
+    /**
+     * @Route("/author/insert_form", name="author_insert_form")
+     */
+    public function insertBookForm(Request $request, EntityManagerInterface $entityManager)
+    {
+
+        // J'utilise le gabarit de formulaire pour créer mon formulaire
+        // J'envoie mon formulaire à un fichier twig
+        // et je l'affiche
+
+        // Je créé un nouveau Book,
+        // en créant une nouvelle instance de l'entité Book
+        $author = new Author();
+
+        // J'utilise la méthode createForm pour créer le gabarit de formulaire
+        // pour le Book: BookType (que j'ai généré en ligne de commandes)
+        // et je lui associe mon entité Book vide
+
+        $authorForm = $this->createForm(AuthorType::class, $author);
+
+        // si je suis sur une méthode POST
+        //donc qu'un formulaire a été envoyé
+        if ($request->isMethod('POST')) {
+
+            // Je récupère les données de la requête (POST)
+            // et je les associes à mon formulaire
+            $authorForm->handleRequest($request);
+
+            // Si les données de mon formulaire sont valides
+            // (que les types rentrés dans les inputs sont bons,
+            // que tous les champs obligatoires sont remplis etc)
+            if ($authorForm->isValid()) {
+                // J'enregistre en BDD ma variable $book
+                // qui n'est plus vide, car elle a été remplie
+                // avec les données du formulaire
+                $entityManager->persist($author);
+                $entityManager->flush();
+            }
+        }
+        // À partir de mon gabarit, je crée la vue de mon formulaire
+        $authorFormView = $authorForm->createView();
+
+        // Je retourne un fichier twig, et je lui envoie ma variable qui contient
+        // mon formulaire
+        return $this->render('author/insert_form.html.twig', [
+            'authorFormView' => $authorFormView
+        ]);
+    }
+
+
+    /**
+     * @Route("/author/update_form/{id}", name="author_update_form")
+     */
+    public function updateBookForm(AuthorRepository $authorRepository, Request $request, EntityManagerInterface $entityManager, $id )
+    {
+        // TODO: récupérer l'enregistrement / l'entité en BDD
+        // TODO: créer le gabarit formulaire de Book
+        // TODO: on récupère les d onnées envoyées par le formulaire
+        // TODO: on écrase l'entité précédente dans la BDD
+
+        $author = $authorRepository->find($id);
+
+        $authorForm = $this->createForm(AuthorType::class, $author);
+
+        if ($request->isMethod('POST'))
+        {
+            $authorForm->handleRequest($request);
+
+            if ($authorForm->isValid()) {
+                $entityManager->persist($author);
+                $entityManager->flush();
+            }
+
+        }
+        // À partir de mon gabarit, je crée la vue de mon formulaire
+        $authorFormView = $authorForm->createView();
+
+        // Je retourne un fichier twig, et je lui envoie ma variable qui contient
+        // mon formulaire
+        return $this->render('author/insert_form.html.twig', [
+            'authorFormView' => $authorFormView
+        ]);
+    }
 }

@@ -6,28 +6,47 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'IM Fell English', serif;
 }
 
 /* Base page */
 
 body{
-    height: 100%;
-    width: 100%;
+    background-image: url("../img/wall.jpg");
+    background-position: inherit;
+    background-size: cover;
+    height: 100vh;
+    background-repeat: no-repeat;
 }
 
 /* Header */
 
 header {
-    background-color: rgb(194, 120, 99);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
+    margin-bottom: 5%;
 }
 
 .logo{
-    width: 15%;
-    height: auto;
+    color: white;
+    font-size: 2em;
+}
+.logo h1{
+
+    text-shadow: 2px 2px 8px black;
+}
+
+.logo a{
+    text-decoration-line: none;
+    color: white;
+}
+.login{
+    width: 50px;
+}
+.login a{
+    width: 50%;
 }
 
 .resp{
@@ -40,29 +59,32 @@ nav{
     align-items: center;
     color: white;
     font-size: 1.5em;
+    width: 50%;
 }
 
 nav a{
     text-decoration-line: none;
     color: white;
+    text-shadow: 2px 2px 8px black;
 }
 
 nav a:hover{
-    color: #AA3333 ;
+    color: #7F0471 ;
 }
 nav p{
-    margin-left: 50px;
+    margin-left: 20px;
     cursor: pointer;
 }
 
 /* Footer */
 
 footer{
-    background-color: rgb(194, 120, 99);
-    padding: 30px 50px;
+    background-color: rgb(27, 11, 29);
+    width: 100%;
 }
 
 .reseau{
+
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -74,15 +96,18 @@ footer{
 
     display: flex;
     justify-content: space-evenly;
-    padding: 100px;
+    padding: 20px 100px;
 }
 
 .books {
-    background-color: lightgray;
+    background-color: rgba(0,0,0, 0.6);
+    border: solid 1px white;
     text-align: center;
     width: 33%;
     padding: 100px 0;
+    margin: 0 20px;
     box-shadow: 3px 3px 10px black;
+    color: white;
 }
 .green{
     color: forestgreen;
@@ -103,6 +128,12 @@ footer{
 
 }
 
+.detail{
+    width: 50px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
 .formulaire{
     display: flex;
     flex-direction: column;
@@ -116,4 +147,33 @@ input{
 
 label.required:before {
     content: "*";
+}
+
+.update{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ajout{
+    width: 33%;
+    margin-left: 5%;
+}
+
+.ajout a {
+    text-decoration-line: none;
+    color: white;
+}
+
+
+hr{
+    width: 80%;
+    opacity: 0.3;
+    margin: 0 auto;
+}
+
+#book{
+    text-align: left;
+    width: 80%;
+    margin: 0 auto;
 }

@@ -13,16 +13,29 @@ use Symfony\Component\Routing\Annotation\Route;
 class BookController extends AbstractController
 {
     /**
-     * @Route("/book_db_list", name="book_db_list")
+     * @Route("/admin/booklist", name="admin_booklist")
+     */
+    public function adminBookList(BookRepository $bookRepository)
+    {
+        $books = $bookRepository->findAll();
+
+        return $this->render('book/admin/admin_booklist.html.twig', [
+            'books'=>$books
+        ]);
+    }
+
+    /**
+     * @Route("/booklist", name="booklist")
      */
     public function bookList(BookRepository $bookRepository)
     {
         $books = $bookRepository->findAll();
 
-        return $this->render('booklist.html.twig', [
+        return $this->render('book/booklist.html.twig', [
             'books'=>$books
         ]);
     }
+
 
     /**
      * @Route("/livre/{id}", name="livre")
@@ -32,7 +45,7 @@ class BookController extends AbstractController
 
         $book = $bookRepository->find($id);
 
-        return $this->render('livre.html.twig', [
+        return $this->render('book/livre.html.twig', [
             'book'=>$book
         ]);
     }
@@ -71,18 +84,20 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/book/delete", name="book_delete")
+     * @Route("/book/delete/{id}", name="book_delete")
      */
-    public function deleteBook(BookRepository $bookRepository, EntityManagerInterface $entityManager)
+    public function deleteBook(BookRepository $bookRepository, EntityManagerInterface $entityManager, $id)
     {
         // Je récupère un enregistrement book en BDD grâce au repository de book
-        $book = $bookRepository->find(1);
+        $book = $bookRepository->find($id);
 
         // J'utilise l'entity manager avec la méthode remove pour enregistrer la suppression du book dans l'unité de travail
         $entityManager->remove($book);
 
         // Je valide la suppression en bdd avec la méthode flush
         $entityManager->flush();
+
+        return $this->redirectToRoute('booklist');
     }
 
     /**
@@ -142,10 +157,50 @@ class BookController extends AbstractController
                 // avec les données du formulaire
                 $entityManager->persist($book);
                 $entityManager->flush();
+
+                return $this->redirectToRoute('booklist');
+
             }
+
         }
 
 
+        // À partir de mon gabarit, je crée la vue de mon formulaire
+        $bookFormView = $bookForm->createView();
+
+        // Je retourne un fichier twig, et je lui envoie ma variable qui contient
+        // mon formulaire
+        return $this->render('book/insert_form.html.twig', [
+            'bookFormView' => $bookFormView
+        ]);
+    }
+
+
+    /**
+     * @Route("/book/update_form/{id}", name="book_update_form")
+     */
+    public function updateBookForm(BookRepository $bookRepository, Request $request, EntityManagerInterface $entityManager, $id )
+    {
+        // TODO: récupérer l'enregistrement / l'entité en BDD
+        // TODO: créer le gabarit formulaire de Book
+        // TODO: on récupère les d onnées envoyées par le formulaire
+        // TODO: on écrase l'entité précédente dans la BDD
+
+        $book = $bookRepository->find($id);
+
+        $bookForm = $this->createForm(BookType::class, $book);
+
+        if ($request->isMethod('POST'))
+        {
+            $bookForm->handleRequest($request);
+
+            if ($bookForm->isValid()) {
+                $entityManager->persist($book);
+                $entityManager->flush();
+                return $this->redirectToRoute('admin_booklist');
+            }
+
+        }
         // À partir de mon gabarit, je crée la vue de mon formulaire
         $bookFormView = $bookForm->createView();
 
